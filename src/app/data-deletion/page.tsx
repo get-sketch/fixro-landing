@@ -1,63 +1,53 @@
-import type { Metadata } from "next";
+"use client";
 import LegalLayout from "../components/LegalLayout";
-
-export const metadata: Metadata = {
-  title: "Delete My Data — FixRo",
-  description: "Request deletion of your FixRo account and personal data.",
-};
+import { useLang } from "../i18n/LanguageProvider";
 
 export default function DataDeletion() {
+  const { t } = useLang();
+
   return (
-    <LegalLayout title="Delete My Data">
-      <h2>How to Delete Your FixRo Account and Data</h2>
-      <p>
-        You have the right to request the deletion of your personal data at any time, in accordance with GDPR Article 17 (&quot;Right to Erasure&quot;).
-      </p>
+    <LegalLayout titleRo="Șterge datele mele" titleEn="Delete My Data">
+      <h2>{t("Cum să-ți ștergi contul și datele FixRo", "How to Delete Your FixRo Account and Data")}</h2>
+      <p>{t(
+        'Aveți dreptul de a solicita ștergerea datelor personale, în conformitate cu GDPR Art. 17 ("Dreptul la ștergere").',
+        'You have the right to request the deletion of your personal data, in accordance with GDPR Article 17 ("Right to Erasure").'
+      )}</p>
 
-      <h2>Option 1: Delete Through the App</h2>
-      <p>The easiest way to delete your account and data:</p>
-      <ol className="list-decimal list-inside space-y-2">
-        <li>Open the FixRo app</li>
-        <li>Go to <strong>Profile</strong> → <strong>Settings</strong></li>
-        <li>Scroll to <strong>&quot;Delete Account&quot;</strong></li>
-        <li>Confirm the deletion</li>
+      <h2>{t("Opțiunea 1: Ștergere din aplicație", "Option 1: Delete Through the App")}</h2>
+      <ol>
+        <li>{t("Deschide aplicația FixRo", "Open the FixRo app")}</li>
+        <li>{t('Mergi la Profil → Setări', 'Go to Profile → Settings')}</li>
+        <li>{t('Derulează la "Șterge contul"', 'Scroll to "Delete Account"')}</li>
+        <li>{t("Confirmă ștergerea", "Confirm the deletion")}</li>
       </ol>
-      <p>Your account and associated personal data will be permanently deleted within 30 days.</p>
+      <p>{t("Contul și datele asociate vor fi șterse permanent în 30 de zile.", "Your account and associated personal data will be permanently deleted within 30 days.")}</p>
 
-      <h2>Option 2: Request by Email</h2>
-      <p>
-        Send an email to <a href="mailto:privacy@fixro.app">privacy@fixro.app</a> with:
-      </p>
+      <h2>{t("Opțiunea 2: Solicitare prin email", "Option 2: Request by Email")}</h2>
+      <p>{t("Trimiteți un email la", "Send an email to")} <a href="mailto:privacy@fixro.app">privacy@fixro.app</a> {t("cu:", "with:")}</p>
       <ul>
-        <li>Subject line: &quot;Data Deletion Request&quot;</li>
-        <li>The email address associated with your FixRo account</li>
-        <li>Your full name for verification</li>
-      </ul>
-      <p>We will process your request within 30 days and confirm deletion by email.</p>
-
-      <h2>What Gets Deleted</h2>
-      <ul>
-        <li>Your profile information (name, email, phone, photo)</li>
-        <li>Your booking history and preferences</li>
-        <li>Your chat messages</li>
-        <li>Your saved addresses</li>
-        <li>Your reviews (anonymized but not removed)</li>
-        <li>Provider verification documents</li>
+        <li>{t('Subiect: "Solicitare ștergere date"', 'Subject: "Data Deletion Request"')}</li>
+        <li>{t("Adresa de email asociată contului FixRo", "The email address associated with your FixRo account")}</li>
+        <li>{t("Numele complet pentru verificare", "Your full name for verification")}</li>
       </ul>
 
-      <h2>What We Must Retain</h2>
-      <p>Romanian law requires us to retain certain records:</p>
+      <h2>{t("Ce se șterge", "What Gets Deleted")}</h2>
       <ul>
-        <li><strong>Financial records:</strong> Transaction data, invoices, and payment records are retained for 6 years for tax and fiscal compliance.</li>
-        <li><strong>Legal obligations:</strong> Data related to active disputes or legal proceedings may be retained until resolution.</li>
+        <li>{t("Informații profil (nume, email, telefon, foto)", "Profile information (name, email, phone, photo)")}</li>
+        <li>{t("Istoricul rezervărilor și preferințele", "Booking history and preferences")}</li>
+        <li>{t("Mesajele din chat", "Chat messages")}</li>
+        <li>{t("Adresele salvate", "Saved addresses")}</li>
+        <li>{t("Recenziile (anonimizate dar nepublicate)", "Reviews (anonymized but not removed)")}</li>
+        <li>{t("Documentele de verificare ale meșterilor", "Provider verification documents")}</li>
       </ul>
-      <p>Retained data is pseudonymized and used only for legal compliance purposes.</p>
 
-      <h2>Contact</h2>
-      <p>
-        For questions about data deletion:<br />
-        Email: <a href="mailto:privacy@fixro.app">privacy@fixro.app</a>
-      </p>
+      <h2>{t("Ce trebuie păstrat", "What We Must Retain")}</h2>
+      <ul>
+        <li><strong>{t("Evidențe financiare:", "Financial records:")}</strong> {t("Tranzacții, facturi și evidențe de plată se păstrează 6 ani pentru conformitate fiscală.", "Transaction data, invoices, and payment records are retained for 6 years for tax compliance.")}</li>
+        <li><strong>{t("Obligații legale:", "Legal obligations:")}</strong> {t("Datele legate de dispute active pot fi păstrate până la rezolvare.", "Data related to active disputes may be retained until resolution.")}</li>
+      </ul>
+
+      <h2>{t("Contact", "Contact")}</h2>
+      <p>Email: <a href="mailto:privacy@fixro.app">privacy@fixro.app</a></p>
     </LegalLayout>
   );
 }

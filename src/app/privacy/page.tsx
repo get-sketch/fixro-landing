@@ -1,115 +1,98 @@
-import type { Metadata } from "next";
+"use client";
 import LegalLayout from "../components/LegalLayout";
-
-export const metadata: Metadata = {
-  title: "Privacy Policy — FixRo",
-  description: "FixRo Privacy Policy. Learn how we collect, use, and protect your personal data.",
-};
+import { useLang } from "../i18n/LanguageProvider";
 
 export default function PrivacyPolicy() {
+  const { t } = useLang();
+
   return (
-    <LegalLayout title="Privacy Policy">
-      <h2>1. Introduction</h2>
-      <p>
-        FixRo (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) operates a home services marketplace platform available as a mobile application (&quot;App&quot;) and website (&quot;fixro.app&quot;). This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you use our services.
-      </p>
-      <p>
-        By using FixRo, you consent to the data practices described in this policy. If you do not agree, please do not use our services.
-      </p>
+    <LegalLayout titleRo="Politica de confidențialitate" titleEn="Privacy Policy">
+      <h2>{t("1. Introducere", "1. Introduction")}</h2>
+      <p>{t(
+        'FixRo ("noi", "nostru" sau "al nostru") operează o platformă de servicii pentru casă disponibilă ca aplicație mobilă ("Aplicația") și site web ("fixro.app"). Această Politică de Confidențialitate explică modul în care colectăm, folosim, divulgăm și protejăm informațiile dumneavoastră personale.',
+        'FixRo ("we," "our," or "us") operates a home services marketplace platform available as a mobile application ("App") and website ("fixro.app"). This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you use our services.'
+      )}</p>
+      <p>{t(
+        "Prin utilizarea FixRo, consimțiți la practicile de date descrise în această politică.",
+        "By using FixRo, you consent to the data practices described in this policy."
+      )}</p>
 
-      <h2>2. Information We Collect</h2>
-      <p>We collect the following categories of personal data:</p>
+      <h2>{t("2. Informații pe care le colectăm", "2. Information We Collect")}</h2>
+      <p>{t("Colectăm următoarele categorii de date personale:", "We collect the following categories of personal data:")}</p>
       <ul>
-        <li><strong>Account Information:</strong> Full name, email address, phone number, profile photo, and city of residence when you create an account.</li>
-        <li><strong>Location Data:</strong> GPS coordinates and address data when you use location-based features (with your consent).</li>
-        <li><strong>Payment Information:</strong> Payment card details are processed securely by our payment processor, Stripe. We do not store credit card numbers on our servers.</li>
-        <li><strong>Service Provider Data:</strong> If you register as a provider, we collect additional data including identification documents, professional licenses, work experience, and bank account details (via Stripe Connect).</li>
-        <li><strong>Usage Data:</strong> App usage analytics, device information, IP address, and interaction data to improve our services.</li>
-        <li><strong>Communications:</strong> Messages exchanged between customers and providers through our in-app chat system.</li>
-        <li><strong>Reviews and Ratings:</strong> Content you submit as reviews or ratings for services received.</li>
+        <li><strong>{t("Informații cont:", "Account Information:")}</strong> {t("Nume complet, adresă de email, număr de telefon, fotografie de profil și oraș de reședință.", "Full name, email address, phone number, profile photo, and city of residence.")}</li>
+        <li><strong>{t("Date de localizare:", "Location Data:")}</strong> {t("Coordonate GPS și date de adresă când utilizați funcțiile bazate pe locație (cu consimțământul dvs.).", "GPS coordinates and address data when you use location-based features (with your consent).")}</li>
+        <li><strong>{t("Informații de plată:", "Payment Information:")}</strong> {t("Detaliile cardului de plată sunt procesate securizat de Stripe. Nu stocăm numerele de card pe serverele noastre.", "Payment card details are processed securely by Stripe. We do not store credit card numbers on our servers.")}</li>
+        <li><strong>{t("Date furnizor servicii:", "Service Provider Data:")}</strong> {t("Documente de identitate, licențe profesionale, experiență și detalii bancare (prin Stripe Connect).", "Identification documents, professional licenses, work experience, and bank account details (via Stripe Connect).")}</li>
+        <li><strong>{t("Date de utilizare:", "Usage Data:")}</strong> {t("Analize de utilizare, informații despre dispozitiv, adresă IP.", "App usage analytics, device information, IP address.")}</li>
+        <li><strong>{t("Comunicări:", "Communications:")}</strong> {t("Mesaje schimbate prin sistemul nostru de chat.", "Messages exchanged through our in-app chat system.")}</li>
+        <li><strong>{t("Recenzii:", "Reviews and Ratings:")}</strong> {t("Conținut trimis ca recenzii sau evaluări.", "Content you submit as reviews or ratings.")}</li>
       </ul>
 
-      <h2>3. How We Use Your Information</h2>
-      <p>We use your personal data to:</p>
+      <h2>{t("3. Cum folosim informațiile", "3. How We Use Your Information")}</h2>
       <ul>
-        <li>Provide, maintain, and improve our platform and services</li>
-        <li>Process bookings and facilitate connections between customers and providers</li>
-        <li>Process payments securely through Stripe</li>
-        <li>Send booking confirmations, reminders, and service updates</li>
-        <li>Verify provider identities and qualifications</li>
-        <li>Respond to your requests, questions, and support needs</li>
-        <li>Detect, investigate, and prevent fraud and security incidents</li>
-        <li>Comply with legal obligations and enforce our terms</li>
-        <li>Send marketing communications (with your consent; you may opt out at any time)</li>
+        <li>{t("Furnizarea, întreținerea și îmbunătățirea serviciilor", "Provide, maintain, and improve our platform and services")}</li>
+        <li>{t("Procesarea rezervărilor și facilitarea conexiunilor", "Process bookings and facilitate connections between customers and providers")}</li>
+        <li>{t("Procesarea plăților securizate prin Stripe", "Process payments securely through Stripe")}</li>
+        <li>{t("Trimiterea confirmărilor și actualizărilor", "Send booking confirmations, reminders, and service updates")}</li>
+        <li>{t("Verificarea identității furnizorilor", "Verify provider identities and qualifications")}</li>
+        <li>{t("Detectarea și prevenirea fraudei", "Detect, investigate, and prevent fraud and security incidents")}</li>
+        <li>{t("Respectarea obligațiilor legale", "Comply with legal obligations and enforce our terms")}</li>
       </ul>
 
-      <h2>4. Legal Basis for Processing (GDPR)</h2>
-      <p>Under the General Data Protection Regulation (GDPR), we process your data based on:</p>
+      <h2>{t("4. Baza legală (GDPR)", "4. Legal Basis for Processing (GDPR)")}</h2>
       <ul>
-        <li><strong>Contract Performance:</strong> Processing necessary to provide our services (bookings, payments, provider matching).</li>
-        <li><strong>Legitimate Interest:</strong> Fraud prevention, platform security, and service improvement.</li>
-        <li><strong>Consent:</strong> Marketing communications, location services, and optional data collection.</li>
-        <li><strong>Legal Obligation:</strong> Tax records, anti-money laundering requirements, and regulatory compliance.</li>
+        <li><strong>{t("Executarea contractului:", "Contract Performance:")}</strong> {t("Rezervări, plăți, conectare cu furnizori.", "Bookings, payments, provider matching.")}</li>
+        <li><strong>{t("Interes legitim:", "Legitimate Interest:")}</strong> {t("Prevenirea fraudei, securitate.", "Fraud prevention, platform security.")}</li>
+        <li><strong>{t("Consimțământ:", "Consent:")}</strong> {t("Comunicări de marketing, localizare.", "Marketing communications, location services.")}</li>
+        <li><strong>{t("Obligație legală:", "Legal Obligation:")}</strong> {t("Evidențe fiscale, cerințe AML.", "Tax records, anti-money laundering requirements.")}</li>
       </ul>
 
-      <h2>5. Data Sharing</h2>
-      <p>We share your data only with:</p>
+      <h2>{t("5. Partajarea datelor", "5. Data Sharing")}</h2>
+      <p>{t("Partajăm datele doar cu:", "We share your data only with:")}</p>
       <ul>
-        <li><strong>Service Providers/Customers:</strong> Relevant booking information is shared between customers and providers to fulfill service requests.</li>
-        <li><strong>Stripe:</strong> Payment processing and provider payout management. Stripe&apos;s privacy policy applies to data they process.</li>
-        <li><strong>Google/Apple:</strong> Authentication services when you sign in via Google or Apple.</li>
-        <li><strong>Supabase:</strong> Our backend infrastructure provider for data storage and authentication.</li>
-        <li><strong>Firebase (Google):</strong> Push notifications and analytics.</li>
-        <li><strong>Law Enforcement:</strong> When required by law, court order, or legal process.</li>
+        <li><strong>{t("Furnizori/Clienți:", "Service Providers/Customers:")}</strong> {t("Informații relevante de rezervare.", "Relevant booking information.")}</li>
+        <li><strong>Stripe:</strong> {t("Procesarea plăților și gestionarea transferurilor.", "Payment processing and provider payout management.")}</li>
+        <li><strong>Google/Apple:</strong> {t("Servicii de autentificare.", "Authentication services.")}</li>
+        <li><strong>Supabase:</strong> {t("Infrastructură backend.", "Backend infrastructure provider.")}</li>
+        <li><strong>Firebase:</strong> {t("Notificări push și analize.", "Push notifications and analytics.")}</li>
       </ul>
-      <p>We do NOT sell your personal data to third parties.</p>
+      <p><strong>{t("NU vindem datele dvs. personale terților.", "We do NOT sell your personal data to third parties.")}</strong></p>
 
-      <h2>6. Data Retention</h2>
-      <p>
-        We retain your personal data for as long as your account is active or as needed to provide services. After account deletion, we retain certain data for up to 6 years to comply with Romanian fiscal and legal requirements. Anonymized data may be retained indefinitely for analytics.
-      </p>
+      <h2>{t("6. Păstrarea datelor", "6. Data Retention")}</h2>
+      <p>{t(
+        "Păstrăm datele cât timp contul este activ. După ștergerea contului, anumite date sunt păstrate până la 6 ani pentru conformitate fiscală românească.",
+        "We retain your data for as long as your account is active. After account deletion, certain data is retained for up to 6 years for Romanian fiscal compliance."
+      )}</p>
 
-      <h2>7. Your Rights</h2>
-      <p>Under GDPR, you have the right to:</p>
+      <h2>{t("7. Drepturile dvs.", "7. Your Rights")}</h2>
       <ul>
-        <li><strong>Access:</strong> Request a copy of your personal data</li>
-        <li><strong>Rectification:</strong> Correct inaccurate or incomplete data</li>
-        <li><strong>Erasure:</strong> Request deletion of your data (&quot;right to be forgotten&quot;)</li>
-        <li><strong>Portability:</strong> Receive your data in a structured, machine-readable format</li>
-        <li><strong>Restriction:</strong> Request restriction of processing</li>
-        <li><strong>Objection:</strong> Object to processing based on legitimate interest</li>
-        <li><strong>Withdraw Consent:</strong> Withdraw consent at any time for consent-based processing</li>
+        <li><strong>{t("Acces:", "Access:")}</strong> {t("Solicitați o copie a datelor", "Request a copy of your data")}</li>
+        <li><strong>{t("Rectificare:", "Rectification:")}</strong> {t("Corectați date inexacte", "Correct inaccurate data")}</li>
+        <li><strong>{t("Ștergere:", "Erasure:")}</strong> {t('Solicitați ștergerea datelor ("dreptul de a fi uitat")', 'Request deletion ("right to be forgotten")')}</li>
+        <li><strong>{t("Portabilitate:", "Portability:")}</strong> {t("Primiți datele într-un format structurat", "Receive your data in a structured format")}</li>
+        <li><strong>{t("Restricție:", "Restriction:")}</strong> {t("Solicitați restricția procesării", "Request restriction of processing")}</li>
+        <li><strong>{t("Opoziție:", "Objection:")}</strong> {t("Opuneți-vă procesării", "Object to processing")}</li>
+        <li><strong>{t("Retragere consimțământ:", "Withdraw Consent:")}</strong> {t("Retrageți consimțământul oricând", "Withdraw consent at any time")}</li>
       </ul>
-      <p>
-        To exercise these rights, contact us at <a href="mailto:privacy@fixro.app">privacy@fixro.app</a> or use the data deletion feature in the app.
-      </p>
+      <p>{t("Contact:", "Contact:")} <a href="mailto:privacy@fixro.app">privacy@fixro.app</a></p>
 
-      <h2>8. Data Security</h2>
-      <p>
-        We implement industry-standard security measures including encryption in transit (TLS/SSL), encryption at rest, secure authentication, and access controls. Payment data is handled exclusively by Stripe, a PCI DSS Level 1 certified payment processor.
-      </p>
+      <h2>{t("8. Securitatea datelor", "8. Data Security")}</h2>
+      <p>{t(
+        "Implementăm măsuri de securitate standard: criptare în tranzit (TLS/SSL), criptare în repaus, autentificare securizată. Datele de plată sunt gestionate exclusiv de Stripe (certificat PCI DSS Nivel 1).",
+        "We implement industry-standard security measures including encryption in transit (TLS/SSL), encryption at rest, secure authentication. Payment data is handled exclusively by Stripe (PCI DSS Level 1 certified)."
+      )}</p>
 
-      <h2>9. International Transfers</h2>
-      <p>
-        Your data may be processed in the European Union and, for certain services (e.g., Stripe, Firebase), in the United States. All transfers comply with GDPR requirements through Standard Contractual Clauses (SCCs) or adequacy decisions.
-      </p>
+      <h2>{t("9. Confidențialitatea copiilor", "9. Children's Privacy")}</h2>
+      <p>{t(
+        "Serviciile noastre nu sunt destinate persoanelor sub 18 ani. Nu colectăm cu bună știință date de la minori.",
+        "Our services are not intended for individuals under 18. We do not knowingly collect data from minors."
+      )}</p>
 
-      <h2>10. Children&apos;s Privacy</h2>
+      <h2>{t("10. Contact", "10. Contact")}</h2>
       <p>
-        Our services are not intended for individuals under 18 years of age. We do not knowingly collect personal data from minors. If we learn that we have collected data from a child under 18, we will delete it promptly.
-      </p>
-
-      <h2>11. Changes to This Policy</h2>
-      <p>
-        We may update this Privacy Policy from time to time. We will notify you of material changes through the App or by email. Your continued use of our services after changes constitutes acceptance of the updated policy.
-      </p>
-
-      <h2>12. Contact</h2>
-      <p>
-        For privacy-related inquiries or to exercise your data rights:<br />
         Email: <a href="mailto:privacy@fixro.app">privacy@fixro.app</a><br />
-        Address: Romania<br />
-        Data Protection Authority: <a href="https://www.dataprotection.ro" target="_blank" rel="noopener noreferrer">ANSPDCP (Romania)</a>
+        {t("Autoritate de protecție a datelor:", "Data Protection Authority:")} <a href="https://www.dataprotection.ro" target="_blank" rel="noopener noreferrer">ANSPDCP (România)</a>
       </p>
     </LegalLayout>
   );

@@ -1,30 +1,30 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "./i18n/LanguageProvider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
-  title: "FixRo — Home Services Marketplace | Romania",
+  title: "FixRo — Servicii pentru casă | Home Services Marketplace",
   description:
-    "Connect with vetted professionals for plumbing, electrical, cleaning, and more. Book trusted home services across Romania in minutes.",
+    "Conectează-te cu profesioniști verificați pentru instalații, electricitate, curățenie și multe altele. Rezervă servicii de încredere în toată România.",
   keywords: [
+    "servicii pentru casă",
     "home services",
-    "Romania",
-    "plumber",
+    "România",
+    "instalator",
     "electrician",
-    "cleaning",
-    "handyman",
-    "marketplace",
+    "curățenie",
     "fixro",
   ],
   openGraph: {
-    title: "FixRo — Home Services Marketplace",
+    title: "FixRo — Servicii pentru casă | Home Services",
     description:
-      "Connect with vetted professionals for all your home service needs in Romania.",
+      "Conectează-te cu profesioniști verificați pentru toate nevoile casei tale în România.",
     type: "website",
-    locale: "en_US",
+    locale: "ro_RO",
   },
 };
 
@@ -34,9 +34,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ro">
       <body className={`${inter.variable} ${outfit.variable} antialiased`}>
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );
