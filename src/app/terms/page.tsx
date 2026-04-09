@@ -32,12 +32,12 @@ export default function Terms() {
         <li>{t("Furnizați informații corecte despre serviciile necesare", "Provide accurate information about the services needed")}</li>
         <li>{t("Fiți prezenți la locația și ora convenite", "Be present at the agreed service location and time")}</li>
         <li>{t("Plătiți prin sistemul securizat al aplicației", "Pay for services through the App's secure payment system")}</li>
-        <li>{t("Tratați meșterii cu respect", "Treat providers with respect and professionalism")}</li>
+        <li>{t("Tratați profesioniștii cu respect", "Treat providers with respect and professionalism")}</li>
         <li>{t("Lăsați recenzii oneste și corecte", "Leave honest and fair reviews based on actual experiences")}</li>
         <li>{t("Nu încercați să ocoliți sistemul de plată", "Do not attempt to bypass the payment system")}</li>
       </ul>
 
-      <h2>{t("5. Termeni pentru meșteri", "5. Provider Terms")}</h2>
+      <h2>{t("5. Termeni pentru profesioniști", "5. Provider Terms")}</h2>
       <ul>
         <li>{t("Să fiți un profesionist autorizat conform legislației române", "Be a licensed professional where required by Romanian law")}</li>
         <li>{t("Să completați verificarea identității", "Complete identity verification and background check requirements")}</li>
@@ -49,17 +49,17 @@ export default function Terms() {
 
       <h2>{t("6. Plăți și taxe", "6. Payments & Fees")}</h2>
       <ul>
-        <li><strong>{t("Comision platformă:", "Platform Commission:")}</strong> {t("FixRo percepe un comision de 15% din fiecare tranzacție. Meșterii primesc 85%.", "FixRo charges a 15% commission on each transaction. Providers receive 85%.")}</li>
+        <li><strong>{t("Comision platformă:", "Platform Commission:")}</strong> {t("Fixro percepe un comision de 15% din fiecare tranzacție. Profesioniștii primesc 85%.", "FixRo charges a 15% commission on each transaction. Providers receive 85%.")}</li>
         <li><strong>{t("Procesare plăți:", "Payment Processing:")}</strong> {t("Toate plățile sunt procesate securizat prin Stripe.", "All payments are processed securely through Stripe.")}</li>
-        <li><strong>{t("Transferuri:", "Payouts:")}</strong> {t("Transferurile către meșteri se procesează zilnic prin Stripe Connect.", "Provider payouts are processed daily via Stripe Connect.")}</li>
-        <li><strong>{t("Bacșiș:", "Tips:")}</strong> {t("Clienții pot adăuga opțional bacșiș, care merge 100% la meșter.", "Customers may optionally add tips, which go 100% to the provider.")}</li>
+        <li><strong>{t("Transferuri:", "Payouts:")}</strong> {t("Transferurile către profesioniști se procesează zilnic prin Stripe Connect.", "Provider payouts are processed daily via Stripe Connect.")}</li>
+        <li><strong>{t("Bacșiș:", "Tips:")}</strong> {t("Clienții pot adăuga opțional bacșiș, care merge 100% la profesionist.", "Customers may optionally add tips, which go 100% to the provider.")}</li>
       </ul>
 
       <h2>{t("7. Politica de anulare și rambursare", "7. Cancellation & Refund Policy")}</h2>
       <ul>
         <li>{t("Anulare gratuită cu cel puțin 24 de ore înainte", "Free cancellation up to 24 hours before the scheduled service")}</li>
         <li>{t("Anulările în mai puțin de 24 de ore pot implica o taxă de până la 50%", "Cancellations within 24 hours may incur a fee of up to 50%")}</li>
-        <li>{t("Dacă meșterul nu se prezintă, clientul primește rambursare integrală", "If a provider fails to show, the customer receives a full refund")}</li>
+        <li>{t("Dacă profesionistul nu se prezintă, clientul primește rambursare integrală", "If a provider fails to show, the customer receives a full refund")}</li>
         <li>{t("Disputele privind calitatea se raportează în 48 de ore", "Disputes about service quality should be reported within 48 hours")}</li>
         <li>{t("FixRo va media disputele și poate emite rambursări", "FixRo will mediate disputes and may issue refunds at its discretion")}</li>
       </ul>
@@ -75,7 +75,7 @@ export default function Terms() {
 
       <h2>{t("9. Limitarea răspunderii", "9. Limitation of Liability")}</h2>
       <p>{t(
-        "FixRo este o platformă de marketplace și nu este parte a acordului de servicii dintre clienți și meșteri. Nu garantăm calitatea sau siguranța serviciilor oferite.",
+        "Fixro este o platformă de marketplace și nu este parte a acordului de servicii dintre clienți și profesioniști. Nu garantăm calitatea sau siguranța serviciilor oferite.",
         "FixRo is a marketplace platform and is not a party to the service agreement between customers and providers. We do not guarantee the quality or safety of services offered."
       )}</p>
 

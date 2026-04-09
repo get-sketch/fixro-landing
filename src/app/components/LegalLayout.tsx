@@ -17,7 +17,7 @@ export default function LegalLayout({ titleRo, titleEn, children }: { titleRo: s
                 <span className="text-white font-bold text-sm" style={{ fontFamily: "var(--font-outfit)" }}>F</span>
               </div>
               <span className="text-lg font-bold" style={{ fontFamily: "var(--font-outfit)" }}>
-                Fix<span className="text-[var(--color-accent)]">Ro</span>
+                Fixro
               </span>
             </Link>
             <span className="text-gray-300">/</span>

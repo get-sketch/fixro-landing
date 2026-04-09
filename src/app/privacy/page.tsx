@@ -2,6 +2,9 @@
 import LegalLayout from "../components/LegalLayout";
 import { useLang } from "../i18n/LanguageProvider";
 
+// Note: metadata must be in a server component or use generateMetadata
+// Since this is "use client", title is set via LegalLayout nav breadcrumb
+
 export default function PrivacyPolicy() {
   const { t } = useLang();
 

@@ -1,10 +1,29 @@
 "use client";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useLang } from "./i18n/LanguageProvider";
 import LanguageToggle from "./i18n/LanguageToggle";
 
 export default function Home() {
   const { t } = useLang();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showCookieBanner, setShowCookieBanner] = useState(false);
+  const [showComingSoon, setShowComingSoon] = useState(false);
+
+  useEffect(() => {
+    const accepted = localStorage.getItem("fixro-cookies-accepted");
+    if (!accepted) setShowCookieBanner(true);
+  }, []);
+
+  const acceptCookies = () => {
+    localStorage.setItem("fixro-cookies-accepted", "true");
+    setShowCookieBanner(false);
+  };
+
+  const handleDownloadClick = () => {
+    setShowComingSoon(true);
+    setTimeout(() => setShowComingSoon(false), 3000);
+  };
 
   return (
     <div className="min-h-screen bg-[var(--color-bg)]">
@@ -16,22 +35,42 @@ export default function Home() {
               <span className="text-white font-bold text-lg" style={{ fontFamily: "var(--font-outfit)" }}>F</span>
             </div>
             <span className="text-xl font-bold" style={{ fontFamily: "var(--font-outfit)" }}>
-              Fix<span className="text-[var(--color-accent)]">Ro</span>
+              Fixro
             </span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
             <a href="#features" className="hover:text-[var(--color-primary)] transition-colors">{t("Funcționalități", "Features")}</a>
             <a href="#how-it-works" className="hover:text-[var(--color-primary)] transition-colors">{t("Cum funcționează", "How it works")}</a>
-            <a href="#providers" className="hover:text-[var(--color-primary)] transition-colors">{t("Pentru meșteri", "For Providers")}</a>
+            <a href="#providers" className="hover:text-[var(--color-primary)] transition-colors">{t("Pentru Pro", "For Providers")}</a>
             <a href="#contact" className="hover:text-[var(--color-primary)] transition-colors">{t("Contact", "Contact")}</a>
           </div>
           <div className="flex items-center gap-3">
             <LanguageToggle />
-            <a href="#download" className="px-5 py-2.5 bg-[var(--color-accent)] text-white rounded-xl text-sm font-semibold hover:opacity-90 transition-opacity">
+            <a href="#download" className="hidden sm:inline-block px-5 py-2.5 bg-[var(--color-accent)] text-white rounded-xl text-sm font-semibold hover:opacity-90 transition-opacity">
               {t("Descarcă", "Download")}
             </a>
+            {/* Mobile hamburger */}
+            <button
+              className="md:hidden flex flex-col gap-1.5 p-2 cursor-pointer"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              <span className={`block w-5 h-0.5 bg-gray-700 transition-transform ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+              <span className={`block w-5 h-0.5 bg-gray-700 transition-opacity ${mobileMenuOpen ? 'opacity-0' : ''}`} />
+              <span className={`block w-5 h-0.5 bg-gray-700 transition-transform ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+            </button>
           </div>
         </div>
+        {/* Mobile menu dropdown */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white border-t border-gray-100 px-6 py-4 space-y-4 text-sm font-medium text-gray-600">
+            <a href="#features" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[var(--color-primary)]">{t("Funcționalități", "Features")}</a>
+            <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[var(--color-primary)]">{t("Cum funcționează", "How it works")}</a>
+            <a href="#providers" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[var(--color-primary)]">{t("Pentru Pro", "For Providers")}</a>
+            <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[var(--color-primary)]">{t("Contact", "Contact")}</a>
+            <a href="#download" onClick={() => setMobileMenuOpen(false)} className="block text-[var(--color-accent)] font-semibold">{t("Descarcă", "Download")}</a>
+          </div>
+        )}
       </nav>
 
       {/* Hero */}
@@ -44,7 +83,7 @@ export default function Home() {
           <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6" style={{ fontFamily: "var(--font-outfit)" }}>
             {t("Casa ta.", "Your home.")} <br />
             <span className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)] bg-clip-text text-transparent">
-              {t("Reparată corect.", "Fixed right.")}
+              {t("La cele mai bune mâini.", "In the best hands.")}
             </span>
           </h1>
           <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -61,11 +100,17 @@ export default function Home() {
               {t("Vezi cum funcționează", "See How It Works")}
             </a>
           </div>
+          {/* Coming soon toast */}
+          {showComingSoon && (
+            <div className="fixed bottom-6 left-1/2 -translate-x-1/2 px-6 py-3 bg-[var(--color-text)] text-white rounded-2xl shadow-2xl text-sm font-medium z-50 animate-[fadeInUp_0.3s_ease-out]">
+              🚀 {t("Aplicația va fi disponibilă în curând!", "App coming soon to stores!")}
+            </div>
+          )}
           <div className="grid grid-cols-3 gap-6 max-w-lg mx-auto mt-16">
             {[
-              { value: "500+", label: t("Meșteri verificați", "Vetted Pros") },
-              { value: "10K+", label: t("Lucrări finalizate", "Jobs Done") },
-              { value: "4.9★", label: t("Rating aplicație", "App Rating") },
+              { value: "100%", label: t("Verificați", "Verified") },
+              { value: "10+", label: t("Categorii", "Categories") },
+              { value: "🇷🇴", label: t("Făcut în România", "Made in Romania") },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="text-2xl md:text-3xl font-bold text-[var(--color-primary)]" style={{ fontFamily: "var(--font-outfit)" }}>{stat.value}</div>
@@ -93,7 +138,7 @@ export default function Home() {
               { icon: "💳", title: t("Plăți securizate", "Secure Payments"), desc: t("Plătește securizat prin Stripe cu card, Apple Pay sau Google Pay.", "Pay securely via Stripe with card, Apple Pay, or Google Pay.") },
               { icon: "📍", title: t("Localizare GPS", "GPS Location"), desc: t("Detectare automată a adresei și urmărire în timp real.", "Automatic address detection and real-time provider tracking.") },
               { icon: "⭐", title: t("Recenzii verificate", "Verified Reviews"), desc: t("Doar clienții care au finalizat o lucrare pot lăsa recenzii.", "Only customers who completed a booking can leave verified reviews.") },
-              { icon: "💬", title: t("Chat în timp real", "Real-time Chat"), desc: t("Comunică direct cu meșterul prin text și imagini.", "Message your provider directly with text and image sharing.") },
+              { icon: "💬", title: t("Chat în timp real", "Real-time Chat"), desc: t("Comunică direct cu profesionistul prin text și imagini.", "Message your provider directly with text and image sharing.") },
               { icon: "🧾", title: t("Oferte & facturi", "Quotes & Invoices"), desc: t("Primești oferte transparente, facturi detaliate și defalcări de costuri.", "Get transparent quotes, detailed invoices, and full cost breakdowns.") },
             ].map((f) => (
               <div key={f.title} className="p-6 rounded-2xl border border-gray-100 hover:border-[var(--color-primary)]/30 hover:shadow-lg hover:shadow-[var(--color-primary)]/5 transition-all group cursor-default">
@@ -118,8 +163,8 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-12">
             {[
               { step: "01", title: t("Alege un serviciu", "Choose a Service"), desc: t("Răsfoiește categorii precum instalații, electricitate, curățenie sau zugrăveli.", "Browse categories like plumbing, electrical, cleaning, or painting.") },
-              { step: "02", title: t("Rezervă un meșter", "Book a Pro"), desc: t("Selectează un profesionist verificat, alege data și ora, și confirmă.", "Select a vetted professional, choose a date and time, and confirm your booking.") },
-              { step: "03", title: t("Gata!", "Get It Done"), desc: t("Meșterul ajunge, finalizează lucrarea, iar tu plătești securizat prin aplicație.", "The pro arrives, completes the job, and you pay securely through the app.") },
+              { step: "02", title: t("Rezervă un Pro", "Book a Pro"), desc: t("Selectează un profesionist verificat, alege data și ora, și confirmă.", "Select a vetted professional, choose a date and time, and confirm your booking.") },
+              { step: "03", title: t("Gata!", "Get It Done"), desc: t("Profesionistul ajunge, finalizează lucrarea, iar tu plătești securizat prin aplicație.", "The pro arrives, completes the job, and you pay securely through the app.") },
             ].map((s) => (
               <div key={s.step} className="text-center">
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-accent)] flex items-center justify-center mx-auto mb-6">
@@ -134,13 +179,13 @@ export default function Home() {
       </section>
 
       {/* For Providers */}
-      <section id="providers" className="py-20 px-6 bg-gradient-to-br from-[var(--color-primary)] to-[#4338CA]">
+      <section id="providers" className="py-20 px-6 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-light)]">
         <div className="max-w-6xl mx-auto text-center text-white">
           <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: "var(--font-outfit)" }}>
             {t("Ești profesionist?", "Are you a professional?")}
           </h2>
           <p className="text-white/70 max-w-lg mx-auto mb-10 text-lg">
-            {t("Alătură-te FixRo și crește-ți afacerea. Obține clienți noi, plăți securizate și gestionează totul dintr-o singură aplicație.", "Join FixRo and grow your business. Get new customers, secure payments, and manage everything from one app.")}
+            {t("Alătură-te Fixro și crește-ți afacerea. Obține clienți noi, plăți securizate și gestionează totul dintr-o singură aplicație.", "Join Fixro and grow your business. Get new customers, secure payments, and manage everything from one app.")}
           </p>
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {[
@@ -156,7 +201,7 @@ export default function Home() {
             ))}
           </div>
           <a href="#download" className="inline-block px-8 py-4 bg-[var(--color-accent)] text-white rounded-2xl text-lg font-semibold hover:shadow-lg transition-all">
-            {t("Devino meșter FixRo", "Become a FixRo Pro")}
+            {t("Devino Pro Fixro", "Become a Fixro Pro")}
           </a>
         </div>
       </section>
@@ -167,23 +212,24 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: "var(--font-outfit)" }}>
             {t("Descarcă FixRo", "Download FixRo")}
           </h2>
-          <p className="text-gray-500 mb-10 text-lg">{t("Disponibil pe iOS și Android. Descărcare gratuită.", "Available on iOS and Android. Free to download.")}</p>
+          <p className="text-gray-500 mb-10 text-lg">{t("În curând pe iOS și Android. Descărcare gratuită.", "Coming soon to iOS and Android. Free to download.")}</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <div className="px-8 py-4 bg-black text-white rounded-2xl flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
+            <button onClick={handleDownloadClick} className="px-8 py-4 bg-black text-white rounded-2xl flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity border-none">
               <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
               <div className="text-left">
-                <div className="text-xs text-gray-400">{t("Descarcă de pe", "Download on the")}</div>
+                <div className="text-xs text-gray-400">{t("În curând pe", "Coming soon to")}</div>
                 <div className="text-lg font-semibold leading-tight">App Store</div>
               </div>
-            </div>
-            <div className="px-8 py-4 bg-black text-white rounded-2xl flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
+            </button>
+            <button onClick={handleDownloadClick} className="px-8 py-4 bg-black text-white rounded-2xl flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity border-none">
               <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.73c-.42-.27-.68-.73-.68-1.23V1.5c0-.5.26-.96.68-1.23L14.54 12 3.18 23.73zm1.64-24.2L16.73 8.5l-2.77 2.77L4.82-.47zm-.02 24.94L14 13.5l2.73 2.73L4.8 24.47zM20.16 10.5L17.5 12l2.66 1.5-2.73 1.53L14.54 12l2.89-3.03 2.73 1.53z"/></svg>
               <div className="text-left">
-                <div className="text-xs text-gray-400">{t("Descarcă de pe", "Get it on")}</div>
+                <div className="text-xs text-gray-400">{t("În curând pe", "Coming soon to")}</div>
                 <div className="text-lg font-semibold leading-tight">Google Play</div>
               </div>
-            </div>
+            </button>
           </div>
+          <p className="text-sm text-gray-400 mt-6">{t("🔔 Înscrie-te pentru a fi notificat la lansare", "🔔 Sign up to be notified at launch")}</p>
         </div>
       </section>
 
@@ -210,7 +256,7 @@ export default function Home() {
                   <span className="text-white font-bold" style={{ fontFamily: "var(--font-outfit)" }}>F</span>
                 </div>
                 <span className="text-white text-lg font-bold" style={{ fontFamily: "var(--font-outfit)" }}>
-                  Fix<span className="text-[var(--color-accent)]">Ro</span>
+                  Fixro
                 </span>
               </div>
               <p className="text-sm">{t("Piața de servicii pentru casă de încredere din România.", "The trusted home services marketplace for Romania.")}</p>
@@ -220,7 +266,7 @@ export default function Home() {
               <div className="space-y-3 text-sm">
                 <a href="#features" className="block hover:text-white transition-colors">{t("Funcționalități", "Features")}</a>
                 <a href="#how-it-works" className="block hover:text-white transition-colors">{t("Cum funcționează", "How It Works")}</a>
-                <a href="#providers" className="block hover:text-white transition-colors">{t("Pentru meșteri", "For Providers")}</a>
+                <a href="#providers" className="block hover:text-white transition-colors">{t("Pentru Pro", "For Providers")}</a>
                 <a href="#download" className="block hover:text-white transition-colors">{t("Descarcă", "Download")}</a>
               </div>
             </div>
@@ -248,6 +294,29 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Cookie Consent Banner */}
+      {showCookieBanner && (
+        <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-2xl p-4 md:p-6">
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-4">
+            <div className="flex-1 text-sm text-gray-600">
+              <p className="font-medium text-gray-900 mb-1">{t("🍪 Folosim cookie-uri", "🍪 We use cookies")}</p>
+              <p>{t(
+                "Utilizăm cookie-uri esențiale și analitice pentru a îmbunătăți experiența ta. Citește ",
+                "We use essential and analytics cookies to improve your experience. Read our "
+              )}<Link href="/cookies" className="text-[var(--color-primary)] underline">{t("Politica cookies", "Cookie Policy")}</Link>.</p>
+            </div>
+            <div className="flex items-center gap-3">
+              <button onClick={acceptCookies} className="px-6 py-2.5 bg-[var(--color-accent)] text-white rounded-xl text-sm font-semibold hover:opacity-90 transition-opacity cursor-pointer border-none">
+                {t("Accept", "Accept")}
+              </button>
+              <button onClick={acceptCookies} className="px-6 py-2.5 bg-gray-100 text-gray-700 rounded-xl text-sm font-medium hover:bg-gray-200 transition-colors cursor-pointer border-none">
+                {t("Doar esențiale", "Essential only")}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

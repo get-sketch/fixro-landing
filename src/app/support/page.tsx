@@ -11,7 +11,7 @@ export default function Support() {
 
       <h3>{t("Cum rezerv un serviciu?", "How do I book a service?")}</h3>
       <p>{t(
-        "Deschide aplicația FixRo, răsfoiește categoriile de servicii, selectează un meșter, alege data și ora, apoi confirmă rezervarea. Vei primi o notificare de confirmare imediat.",
+        "Deschide aplicația Fixro, răsfoiește categoriile de servicii, selectează un profesionist, alege data și ora, apoi confirmă rezervarea. Vei primi o notificare de confirmare imediat.",
         "Open the FixRo app, browse service categories, select a provider, choose a date and time, and confirm your booking. You'll receive a confirmation notification immediately."
       )}</p>
 
@@ -27,9 +27,9 @@ export default function Support() {
         'Yes. Free cancellation is available up to 24 hours before the scheduled service. Cancellations within 24 hours may incur a fee of up to 50%. You can cancel from the "My Bookings" section.'
       )}</p>
 
-      <h3>{t("Cum sunt verificați meșterii?", "How are providers verified?")}</h3>
+      <h3>{t("Cum sunt verificați profesioniștii?", "How are providers verified?")}</h3>
       <p>{t(
-        "Toți meșterii trec printr-un proces de verificare a identității, validarea licenței profesionale și monitorizarea recenziilor clienților.",
+        "Toți profesioniștii trec printr-un proces de verificare a identității, validarea licenței profesionale și monitorizarea recenziilor clienților.",
         "All providers go through identity verification, professional license validation, and customer review monitoring."
       )}</p>
 
@@ -39,15 +39,15 @@ export default function Support() {
         'Report the issue within 48 hours through the app. Go to "My Bookings", select the booking, and tap "Report Issue". Our support team will review the case.'
       )}</p>
 
-      <h3>{t("Cum devin meșter?", "How do I become a provider?")}</h3>
+      <h3>{t("Cum devin Pro?", "How do I become a provider?")}</h3>
       <p>{t(
-        'În aplicație, mergi la Profil → "Devino meșter". Completează formularul cu detaliile profesionale, încarcă actul de identitate și licențele relevante. Va trebui să configurezi și un cont Stripe.',
+        'În aplicație, mergi la Profil → "Devino Pro". Completează formularul cu detaliile profesionale, încarcă actul de identitate și licențele relevante. Va trebui să configurezi și un cont Stripe.',
         'In the app, go to Profile → "Become a Pro". Complete the registration form, upload your ID and licenses. You\'ll also need to set up a Stripe account to receive payments.'
       )}</p>
 
-      <h3>{t("Cum sunt plătiți meșterii?", "How do providers get paid?")}</h3>
+      <h3>{t("Cum sunt plătiți profesioniștii?", "How do providers get paid?")}</h3>
       <p>{t(
-        'Meșterii primesc 85% din fiecare plată direct în contul bancar prin Stripe Connect. Transferurile se procesează zilnic. Configurează contul bancar din Profil → "Configurare cont bancar".',
+        'Profesioniștii primesc 85% din fiecare plată direct în contul bancar prin Stripe Connect. Transferurile se procesează zilnic. Configurează contul bancar din Profil → "Configurare cont bancar".',
         'Providers receive 85% of each payment directly to their bank account via Stripe Connect. Payouts are processed daily. Set up your bank account in Profile → "Bank Account Setup".'
       )}</p>
 

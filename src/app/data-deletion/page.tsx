@@ -37,7 +37,7 @@ export default function DataDeletion() {
         <li>{t("Mesajele din chat", "Chat messages")}</li>
         <li>{t("Adresele salvate", "Saved addresses")}</li>
         <li>{t("Recenziile (anonimizate dar nepublicate)", "Reviews (anonymized but not removed)")}</li>
-        <li>{t("Documentele de verificare ale meșterilor", "Provider verification documents")}</li>
+        <li>{t("Documentele de verificare ale profesioniștilor", "Provider verification documents")}</li>
       </ul>
 
       <h2>{t("Ce trebuie păstrat", "What We Must Retain")}</h2>
