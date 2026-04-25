@@ -78,7 +78,7 @@ export default function PrivacyPolicy() {
         <li><strong>{t("Opoziție:", "Objection:")}</strong> {t("Opuneți-vă procesării", "Object to processing")}</li>
         <li><strong>{t("Retragere consimțământ:", "Withdraw Consent:")}</strong> {t("Retrageți consimțământul oricând", "Withdraw consent at any time")}</li>
       </ul>
-      <p>{t("Contact:", "Contact:")} <a href="mailto:privacy@fixro.app">privacy@fixro.app</a></p>
+      <p>{t("Contact:", "Contact:")} <a href="mailto:support-fixro@inanu.art">support-fixro@inanu.art</a></p>
 
       <h2>{t("8. Securitatea datelor", "8. Data Security")}</h2>
       <p>{t(
@@ -94,7 +94,7 @@ export default function PrivacyPolicy() {
 
       <h2>{t("10. Contact", "10. Contact")}</h2>
       <p>
-        Email: <a href="mailto:privacy@fixro.app">privacy@fixro.app</a><br />
+        Email: <a href="mailto:support-fixro@inanu.art">support-fixro@inanu.art</a><br />
         {t("Autoritate de protecție a datelor:", "Data Protection Authority:")} <a href="https://www.dataprotection.ro" target="_blank" rel="noopener noreferrer">ANSPDCP (România)</a>
       </p>
     </LegalLayout>

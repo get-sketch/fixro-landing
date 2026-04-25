@@ -74,7 +74,7 @@ export default function GDPR() {
       </p>
 
       <h2>{t("8. Contact DPO", "8. Data Protection Officer")}</h2>
-      <p>Email: <a href="mailto:dpo@fixro.app">dpo@fixro.app</a></p>
+      <p>Email: <a href="mailto:support-fixro@inanu.art">support-fixro@inanu.art</a></p>
     </LegalLayout>
   );
 }

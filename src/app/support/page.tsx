@@ -59,7 +59,7 @@ export default function Support() {
 
       <h2>{t("Contactează suportul", "Contact Support")}</h2>
       <p>
-        📧 Email: <a href="mailto:support@fixro.app">support@fixro.app</a><br />
+        📧 Email: <a href="mailto:support-fixro@inanu.art">support-fixro@inanu.art</a><br />
         📞 {t("Telefon:", "Phone:")} +40 760 269 269<br />
         ⏰ {t("Program suport: Luni–Vineri, 9:00–18:00 (EET)", "Support hours: Monday–Friday, 9:00–18:00 (EET)")}
       </p>

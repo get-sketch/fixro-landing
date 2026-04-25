@@ -86,7 +86,7 @@ export default function Terms() {
       )}</p>
 
       <h2>{t("11. Contact", "11. Contact")}</h2>
-      <p>Email: <a href="mailto:legal@fixro.app">legal@fixro.app</a></p>
+      <p>Email: <a href="mailto:support-fixro@inanu.art">support-fixro@inanu.art</a></p>
     </LegalLayout>
   );
 }

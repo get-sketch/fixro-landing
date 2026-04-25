@@ -23,7 +23,7 @@ export default function DataDeletion() {
       <p>{t("Contul și datele asociate vor fi șterse permanent în 30 de zile.", "Your account and associated personal data will be permanently deleted within 30 days.")}</p>
 
       <h2>{t("Opțiunea 2: Solicitare prin email", "Option 2: Request by Email")}</h2>
-      <p>{t("Trimiteți un email la", "Send an email to")} <a href="mailto:privacy@fixro.app">privacy@fixro.app</a> {t("cu:", "with:")}</p>
+      <p>{t("Trimiteți un email la", "Send an email to")} <a href="mailto:support-fixro@inanu.art">support-fixro@inanu.art</a> {t("cu:", "with:")}</p>
       <ul>
         <li>{t('Subiect: "Solicitare ștergere date"', 'Subject: "Data Deletion Request"')}</li>
         <li>{t("Adresa de email asociată contului FixRo", "The email address associated with your FixRo account")}</li>
@@ -47,7 +47,7 @@ export default function DataDeletion() {
       </ul>
 
       <h2>{t("Contact", "Contact")}</h2>
-      <p>Email: <a href="mailto:privacy@fixro.app">privacy@fixro.app</a></p>
+      <p>Email: <a href="mailto:support-fixro@inanu.art">support-fixro@inanu.art</a></p>
     </LegalLayout>
   );
 }

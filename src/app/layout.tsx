@@ -73,7 +73,7 @@ const jsonLd = {
     "Home services marketplace connecting customers with verified professionals in Romania.",
   contactPoint: {
     "@type": "ContactPoint",
-    email: "contact@fixro.app",
+    email: "support-fixro@inanu.art",
     telephone: "+40760269269",
     contactType: "customer support",
     availableLanguage: ["Romanian", "English"],

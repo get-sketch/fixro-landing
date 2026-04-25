@@ -239,7 +239,7 @@ export default function Home() {
           <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "var(--font-outfit)" }}>{t("Contactează-ne", "Contact Us")}</h2>
           <p className="text-gray-500 mb-6">{t("Ai întrebări? Suntem aici să te ajutăm.", "Have questions? We're here to help.")}</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <a href="mailto:contact@fixro.app" className="text-[var(--color-primary)] font-medium hover:underline">contact@fixro.app</a>
+            <a href="mailto:support-fixro@inanu.art" className="text-[var(--color-primary)] font-medium hover:underline">support-fixro@inanu.art</a>
             <span className="hidden sm:block text-gray-300">|</span>
             <span className="text-gray-500">📞 +40 760 269 269</span>
           </div>
@@ -282,7 +282,7 @@ export default function Home() {
             <div>
               <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">{t("Suport", "Support")}</h4>
               <div className="space-y-3 text-sm">
-                <a href="mailto:contact@fixro.app" className="block hover:text-white transition-colors">contact@fixro.app</a>
+                <a href="mailto:support-fixro@inanu.art" className="block hover:text-white transition-colors">support-fixro@inanu.art</a>
                 <Link href="/support" className="block hover:text-white transition-colors">{t("Centru de ajutor", "Help Center")}</Link>
                 <Link href="/data-deletion" className="block hover:text-white transition-colors">{t("Șterge datele mele", "Delete My Data")}</Link>
               </div>
