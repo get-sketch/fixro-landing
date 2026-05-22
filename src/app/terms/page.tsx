@@ -9,14 +9,14 @@ export default function Terms() {
     <LegalLayout titleRo="Termeni și condiții" titleEn="Terms of Service">
       <h2>{t("1. Acceptarea termenilor", "1. Acceptance of Terms")}</h2>
       <p>{t(
-        'Prin descărcarea, instalarea sau utilizarea aplicației FixRo ("Aplicația") sau accesarea site-ului nostru web, sunteți de acord să respectați acești Termeni și Condiții.',
-        'By downloading, installing, or using the FixRo application ("App") or accessing our website, you agree to be bound by these Terms of Service.'
+        'Prin descărcarea, instalarea sau utilizarea aplicației Fixro ("Aplicația") sau accesarea site-ului nostru web, sunteți de acord să respectați acești Termeni și Condiții.',
+        'By downloading, installing, or using the Fixro application ("App") or accessing our website, you agree to be bound by these Terms of Service.'
       )}</p>
 
       <h2>{t("2. Descrierea serviciului", "2. Description of Service")}</h2>
       <p>{t(
-        "FixRo operează o platformă de marketplace care conectează clienții cu profesioniști independenți. FixRo nu este un furnizor de servicii; facilităm conexiunile și procesăm plățile.",
-        "FixRo operates a marketplace platform that connects customers with independent service providers. FixRo is not a service provider; we facilitate connections and process payments."
+        "Fixro operează o platformă de marketplace care conectează clienții cu profesioniști independenți. Fixro nu este un furnizor de servicii; facilităm conexiunile și procesăm plățile.",
+        "Fixro operates a marketplace platform that connects customers with independent service providers. Fixro is not a service provider; we facilitate connections and process payments."
       )}</p>
 
       <h2>{t("3. Înregistrarea contului", "3. Account Registration")}</h2>
@@ -42,14 +42,14 @@ export default function Terms() {
         <li>{t("Să fiți un profesionist autorizat conform legislației române", "Be a licensed professional where required by Romanian law")}</li>
         <li>{t("Să completați verificarea identității", "Complete identity verification and background check requirements")}</li>
         <li>{t("Să sosiți la timp și să prestați servicii profesionale", "Arrive on time and perform services professionally")}</li>
-        <li>{t("Să acceptați plăți exclusiv prin FixRo", "Accept payments exclusively through FixRo's payment system")}</li>
+        <li>{t("Să acceptați plăți exclusiv prin Fixro", "Accept payments exclusively through Fixro's payment system")}</li>
         <li>{t("Să configurați un cont Stripe Connect", "Set up a Stripe Connect account for receiving payouts")}</li>
         <li>{t("Să nu solicitați clienți pentru tranzacții în afara platformei", "Do not solicit customers for off-platform transactions")}</li>
       </ul>
 
       <h2>{t("6. Plăți și taxe", "6. Payments & Fees")}</h2>
       <ul>
-        <li><strong>{t("Comision platformă:", "Platform Commission:")}</strong> {t("Fixro percepe un comision de 15% din fiecare tranzacție. Profesioniștii primesc 85%.", "FixRo charges a 15% commission on each transaction. Providers receive 85%.")}</li>
+        <li><strong>{t("Comision platformă:", "Platform Commission:")}</strong> {t("Fixro percepe un comision de 15% din fiecare tranzacție. Profesioniștii primesc 85%.", "Fixro charges a 15% commission on each transaction. Providers receive 85%.")}</li>
         <li><strong>{t("Procesare plăți:", "Payment Processing:")}</strong> {t("Toate plățile sunt procesate securizat prin Stripe.", "All payments are processed securely through Stripe.")}</li>
         <li><strong>{t("Transferuri:", "Payouts:")}</strong> {t("Transferurile către profesioniști se procesează zilnic prin Stripe Connect.", "Provider payouts are processed daily via Stripe Connect.")}</li>
         <li><strong>{t("Bacșiș:", "Tips:")}</strong> {t("Clienții pot adăuga opțional bacșiș, care merge 100% la profesionist.", "Customers may optionally add tips, which go 100% to the provider.")}</li>
@@ -61,7 +61,7 @@ export default function Terms() {
         <li>{t("Anulările în mai puțin de 24 de ore pot implica o taxă de până la 50%", "Cancellations within 24 hours may incur a fee of up to 50%")}</li>
         <li>{t("Dacă profesionistul nu se prezintă, clientul primește rambursare integrală", "If a provider fails to show, the customer receives a full refund")}</li>
         <li>{t("Disputele privind calitatea se raportează în 48 de ore", "Disputes about service quality should be reported within 48 hours")}</li>
-        <li>{t("FixRo va media disputele și poate emite rambursări", "FixRo will mediate disputes and may issue refunds at its discretion")}</li>
+        <li>{t("Fixro va media disputele și poate emite rambursări", "Fixro will mediate disputes and may issue refunds at its discretion")}</li>
       </ul>
 
       <h2>{t("8. Conduită interzisă", "8. Prohibited Conduct")}</h2>
@@ -76,7 +76,7 @@ export default function Terms() {
       <h2>{t("9. Limitarea răspunderii", "9. Limitation of Liability")}</h2>
       <p>{t(
         "Fixro este o platformă de marketplace și nu este parte a acordului de servicii dintre clienți și profesioniști. Nu garantăm calitatea sau siguranța serviciilor oferite.",
-        "FixRo is a marketplace platform and is not a party to the service agreement between customers and providers. We do not guarantee the quality or safety of services offered."
+        "Fixro is a marketplace platform and is not a party to the service agreement between customers and providers. We do not guarantee the quality or safety of services offered."
       )}</p>
 
       <h2>{t("10. Legislația aplicabilă", "10. Governing Law")}</h2>

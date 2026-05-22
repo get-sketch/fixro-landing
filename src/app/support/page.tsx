@@ -12,7 +12,7 @@ export default function Support() {
       <h3>{t("Cum rezerv un serviciu?", "How do I book a service?")}</h3>
       <p>{t(
         "Deschide aplicația Fixro, răsfoiește categoriile de servicii, selectează un profesionist, alege data și ora, apoi confirmă rezervarea. Vei primi o notificare de confirmare imediat.",
-        "Open the FixRo app, browse service categories, select a provider, choose a date and time, and confirm your booking. You'll receive a confirmation notification immediately."
+        "Open the Fixro app, browse service categories, select a provider, choose a date and time, and confirm your booking. You'll receive a confirmation notification immediately."
       )}</p>
 
       <h3>{t("Cum funcționează plățile?", "How do payments work?")}</h3>
@@ -53,8 +53,8 @@ export default function Support() {
 
       <h3>{t("Cum îmi șterg contul?", "How do I delete my account?")}</h3>
       <p>{t(
-        'Mergi la Profil → Setări → "Șterge contul" în aplicație, sau vizitează pagina noastră de ',
-        'Go to Profile → Settings → "Delete Account" in the app, or visit our '
+        'Mergi la Profil → Securitate → "Șterge contul" în aplicație. Datele tale personale sunt șterse imediat. Vezi și ',
+        'Go to Profile → Security → "Delete Account" in the app. Your personal data is deleted immediately. See our '
       )}<a href="/data-deletion">{t("Ștergere date", "Data Deletion page")}</a>.</p>
 
       <h2>{t("Contactează suportul", "Contact Support")}</h2>

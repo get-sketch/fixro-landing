@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
+import { SITE } from "../lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://fixro-landing.vercel.app";
+  const baseUrl = SITE.baseUrl;
   const lastModified = new Date();
 
   return [

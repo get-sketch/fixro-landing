@@ -12,12 +12,12 @@ export default function PrivacyPolicy() {
     <LegalLayout titleRo="Politica de confidențialitate" titleEn="Privacy Policy">
       <h2>{t("1. Introducere", "1. Introduction")}</h2>
       <p>{t(
-        'FixRo ("noi", "nostru" sau "al nostru") operează o platformă de servicii pentru casă disponibilă ca aplicație mobilă ("Aplicația") și site web ("fixro.app"). Această Politică de Confidențialitate explică modul în care colectăm, folosim, divulgăm și protejăm informațiile dumneavoastră personale.',
-        'FixRo ("we," "our," or "us") operates a home services marketplace platform available as a mobile application ("App") and website ("fixro.app"). This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you use our services.'
+        'Fixro ("noi", "nostru" sau "al nostru") operează o platformă de servicii pentru casă disponibilă ca aplicație mobilă ("Aplicația") și site web ("fixro-landing.vercel.app"). Această Politică de Confidențialitate explică modul în care colectăm, folosim, divulgăm și protejăm informațiile dumneavoastră personale.',
+        'Fixro ("we," "our," or "us") operates a home services marketplace platform available as a mobile application ("App") and website ("fixro-landing.vercel.app"). This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you use our services.'
       )}</p>
       <p>{t(
-        "Prin utilizarea FixRo, consimțiți la practicile de date descrise în această politică.",
-        "By using FixRo, you consent to the data practices described in this policy."
+        "Prin utilizarea Fixro, consimțiți la practicile de date descrise în această politică.",
+        "By using Fixro, you consent to the data practices described in this policy."
       )}</p>
 
       <h2>{t("2. Informații pe care le colectăm", "2. Information We Collect")}</h2>
@@ -58,14 +58,17 @@ export default function PrivacyPolicy() {
         <li><strong>Stripe:</strong> {t("Procesarea plăților și gestionarea transferurilor.", "Payment processing and provider payout management.")}</li>
         <li><strong>Google/Apple:</strong> {t("Servicii de autentificare.", "Authentication services.")}</li>
         <li><strong>Supabase:</strong> {t("Infrastructură backend.", "Backend infrastructure provider.")}</li>
-        <li><strong>Firebase:</strong> {t("Notificări push și analize.", "Push notifications and analytics.")}</li>
+        <li><strong>Firebase Cloud Messaging:</strong> {t("Notificări push.", "Push notifications.")}</li>
       </ul>
       <p><strong>{t("NU vindem datele dvs. personale terților.", "We do NOT sell your personal data to third parties.")}</strong></p>
 
       <h2>{t("6. Păstrarea datelor", "6. Data Retention")}</h2>
       <p>{t(
-        "Păstrăm datele cât timp contul este activ. După ștergerea contului, anumite date sunt păstrate până la 6 ani pentru conformitate fiscală românească.",
-        "We retain your data for as long as your account is active. After account deletion, certain data is retained for up to 6 years for Romanian fiscal compliance."
+        "Păstrăm datele cât timp contul este activ. La cererea ta, contul și datele personale asociate sunt șterse imediat (vezi pagina ",
+        "We retain your data for as long as your account is active. On your request, your account and associated personal data are deleted immediately (see our "
+      )}<a href="/data-deletion">{t("Ștergere date", "Data Deletion page")}</a>{t(
+        "). Excepție: înregistrările legate de plăți, facturi și obligații fiscale sunt păstrate 6 ani conform legislației române.",
+        "). Exception: payment, invoice, and tax-related records are retained for 6 years under Romanian law."
       )}</p>
 
       <h2>{t("7. Drepturile dvs.", "7. Your Rights")}</h2>

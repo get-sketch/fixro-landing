@@ -16,16 +16,18 @@ export default function CookiePolicy() {
       <h2>{t("2. Cum folosim cookie-urile", "2. How We Use Cookies")}</h2>
       <ul>
         <li><strong>{t("Cookie-uri esențiale:", "Essential Cookies:")}</strong> {t("Necesare pentru funcționarea platformei (autentificare, securitate, sesiuni). Nu pot fi dezactivate.", "Required for the platform to function (authentication, security, sessions). Cannot be disabled.")}</li>
-        <li><strong>{t("Cookie-uri analitice:", "Analytics Cookies:")}</strong> {t("Ne ajută să înțelegem cum interacționează utilizatorii cu serviciile noastre (Google Analytics, Firebase).", "Help us understand how users interact with our services (Google Analytics, Firebase Analytics).")}</li>
-        <li><strong>{t("Cookie-uri funcționale:", "Functional Cookies:")}</strong> {t("Rețin preferințele dvs. precum selecția limbii.", "Remember your preferences such as language selection.")}</li>
-        <li><strong>{t("Cookie-uri de plată:", "Payment Cookies:")}</strong> {t("Folosite de Stripe pentru procesarea securizată a plăților.", "Used by Stripe to process payments securely and prevent fraud.")}</li>
+        <li><strong>{t("Cookie-uri funcționale:", "Functional Cookies:")}</strong> {t("Stocate local în browser pentru a reține preferințe ca selecția limbii și acceptarea cookie-urilor.", "Stored locally in your browser to remember preferences like language selection and cookie acceptance.")}</li>
+        <li><strong>{t("Cookie-uri de plată:", "Payment Cookies:")}</strong> {t("Setate de Stripe pe paginile unde inițiezi o plată, pentru procesare securizată și prevenirea fraudei.", "Set by Stripe on pages where you initiate a payment, for secure processing and fraud prevention.")}</li>
       </ul>
+      <p>{t(
+        "Site-ul web Fixro nu rulează cookie-uri de analiză (Google Analytics, Facebook Pixel etc.). Aplicația mobilă folosește Firebase Cloud Messaging pentru notificări push, care nu setează cookie-uri în browser.",
+        "The Fixro website does not run analytics cookies (Google Analytics, Facebook Pixel, etc.). The mobile app uses Firebase Cloud Messaging for push notifications, which does not set browser cookies."
+      )}</p>
 
       <h2>{t("3. Cookie-uri terțe", "3. Third-Party Cookies")}</h2>
       <ul>
-        <li><strong>Stripe:</strong> {t("Procesarea plăților și detectarea fraudei", "Payment processing and fraud detection")}</li>
-        <li><strong>Google (Firebase):</strong> {t("Analize și notificări push", "Analytics and push notifications")}</li>
-        <li><strong>Supabase:</strong> {t("Autentificare și gestionarea sesiunilor", "Authentication and session management")}</li>
+        <li><strong>Stripe:</strong> {t("Procesarea plăților și detectarea fraudei (numai pe paginile de plată din aplicație)", "Payment processing and fraud detection (only on payment pages in the app)")}</li>
+        <li><strong>Supabase:</strong> {t("Autentificare și gestionarea sesiunilor (în aplicația mobilă)", "Authentication and session management (in the mobile app)")}</li>
       </ul>
 
       <h2>{t("4. Gestionarea cookie-urilor", "4. Managing Cookies")}</h2>

@@ -1,14 +1,15 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import { useLang } from "./i18n/LanguageProvider";
 import LanguageToggle from "./i18n/LanguageToggle";
+import StripeReturnNotice from "./components/StripeReturnNotice";
+import { SITE } from "../lib/site";
 
 export default function Home() {
   const { t } = useLang();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showCookieBanner, setShowCookieBanner] = useState(false);
-  const [showComingSoon, setShowComingSoon] = useState(false);
 
   useEffect(() => {
     const accepted = localStorage.getItem("fixro-cookies-accepted");
@@ -20,13 +21,12 @@ export default function Home() {
     setShowCookieBanner(false);
   };
 
-  const handleDownloadClick = () => {
-    setShowComingSoon(true);
-    setTimeout(() => setShowComingSoon(false), 3000);
-  };
-
   return (
     <div className="min-h-screen bg-[var(--color-bg)]">
+      {/* Stripe return banner — renders only when ?stripe=... is present. */}
+      <Suspense fallback={null}>
+        <StripeReturnNotice />
+      </Suspense>
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -100,12 +100,6 @@ export default function Home() {
               {t("Vezi cum funcționează", "See How It Works")}
             </a>
           </div>
-          {/* Coming soon toast */}
-          {showComingSoon && (
-            <div className="fixed bottom-6 left-1/2 -translate-x-1/2 px-6 py-3 bg-[var(--color-text)] text-white rounded-2xl shadow-2xl text-sm font-medium z-50 animate-[fadeInUp_0.3s_ease-out]">
-              🚀 {t("Aplicația va fi disponibilă în curând!", "App coming soon to stores!")}
-            </div>
-          )}
           <div className="grid grid-cols-3 gap-6 max-w-lg mx-auto mt-16">
             {[
               { value: "100%", label: t("Verificați", "Verified") },
@@ -210,26 +204,34 @@ export default function Home() {
       <section id="download" className="py-20 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: "var(--font-outfit)" }}>
-            {t("Descarcă FixRo", "Download FixRo")}
+            {t("Descarcă Fixro", "Download Fixro")}
           </h2>
-          <p className="text-gray-500 mb-10 text-lg">{t("În curând pe iOS și Android. Descărcare gratuită.", "Coming soon to iOS and Android. Free to download.")}</p>
+          <p className="text-gray-500 mb-10 text-lg">{t("Disponibil pe iOS și Android. Descărcare gratuită.", "Available on iOS and Android. Free to download.")}</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button onClick={handleDownloadClick} className="px-8 py-4 bg-black text-white rounded-2xl flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity border-none">
+            <a href={SITE.appStoreUrl} target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-black text-white rounded-2xl flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity border-none">
               <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
               <div className="text-left">
-                <div className="text-xs text-gray-400">{t("În curând pe", "Coming soon to")}</div>
+                <div className="text-xs text-gray-400">{t("Descarcă din", "Download on the")}</div>
                 <div className="text-lg font-semibold leading-tight">App Store</div>
               </div>
-            </button>
-            <button onClick={handleDownloadClick} className="px-8 py-4 bg-black text-white rounded-2xl flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity border-none">
+            </a>
+            <a href={SITE.playStoreUrl} target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-black text-white rounded-2xl flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity border-none">
               <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.73c-.42-.27-.68-.73-.68-1.23V1.5c0-.5.26-.96.68-1.23L14.54 12 3.18 23.73zm1.64-24.2L16.73 8.5l-2.77 2.77L4.82-.47zm-.02 24.94L14 13.5l2.73 2.73L4.8 24.47zM20.16 10.5L17.5 12l2.66 1.5-2.73 1.53L14.54 12l2.89-3.03 2.73 1.53z"/></svg>
               <div className="text-left">
-                <div className="text-xs text-gray-400">{t("În curând pe", "Coming soon to")}</div>
+                <div className="text-xs text-gray-400">{t("Disponibil pe", "Get it on")}</div>
                 <div className="text-lg font-semibold leading-tight">Google Play</div>
               </div>
-            </button>
+            </a>
           </div>
-          <p className="text-sm text-gray-400 mt-6">{t("🔔 Înscrie-te pentru a fi notificat la lansare", "🔔 Sign up to be notified at launch")}</p>
+          <p className="text-sm text-gray-400 mt-6">
+            {t("Ai întrebări? Scrie-ne la ", "Questions? Email us at ")}
+            <a
+              href={`mailto:${SITE.email}`}
+              className="text-[var(--color-primary)] underline hover:no-underline"
+            >
+              {SITE.email}
+            </a>
+          </p>
         </div>
       </section>
 
@@ -239,9 +241,9 @@ export default function Home() {
           <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "var(--font-outfit)" }}>{t("Contactează-ne", "Contact Us")}</h2>
           <p className="text-gray-500 mb-6">{t("Ai întrebări? Suntem aici să te ajutăm.", "Have questions? We're here to help.")}</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <a href="mailto:support-fixro@inanu.art" className="text-[var(--color-primary)] font-medium hover:underline">support-fixro@inanu.art</a>
+            <a href={`mailto:${SITE.email}`} className="text-[var(--color-primary)] font-medium hover:underline">{SITE.email}</a>
             <span className="hidden sm:block text-gray-300">|</span>
-            <span className="text-gray-500">📞 +40 760 269 269</span>
+            <a href={`tel:${SITE.phone}`} className="text-gray-500 hover:text-[var(--color-primary)] transition-colors">📞 {SITE.phoneDisplay}</a>
           </div>
         </div>
       </section>
@@ -282,14 +284,14 @@ export default function Home() {
             <div>
               <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">{t("Suport", "Support")}</h4>
               <div className="space-y-3 text-sm">
-                <a href="mailto:support-fixro@inanu.art" className="block hover:text-white transition-colors">support-fixro@inanu.art</a>
+                <a href={`mailto:${SITE.email}`} className="block hover:text-white transition-colors">{SITE.email}</a>
                 <Link href="/support" className="block hover:text-white transition-colors">{t("Centru de ajutor", "Help Center")}</Link>
                 <Link href="/data-deletion" className="block hover:text-white transition-colors">{t("Șterge datele mele", "Delete My Data")}</Link>
               </div>
             </div>
           </div>
           <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm">© {new Date().getFullYear()} FixRo. {t("Toate drepturile rezervate.", "All rights reserved.")}</p>
+            <p className="text-sm">© {new Date().getFullYear()} Fixro. {t("Toate drepturile rezervate.", "All rights reserved.")}</p>
             <p className="text-sm">{t("Făcut cu ❤️ în România 🇷🇴", "Made with ❤️ in Romania 🇷🇴")}</p>
           </div>
         </div>
@@ -302,8 +304,8 @@ export default function Home() {
             <div className="flex-1 text-sm text-gray-600">
               <p className="font-medium text-gray-900 mb-1">{t("🍪 Folosim cookie-uri", "🍪 We use cookies")}</p>
               <p>{t(
-                "Utilizăm cookie-uri esențiale și analitice pentru a îmbunătăți experiența ta. Citește ",
-                "We use essential and analytics cookies to improve your experience. Read our "
+                "Utilizăm cookie-uri esențiale și funcționale pentru a îmbunătăți experiența ta. Citește ",
+                "We use essential and functional cookies to improve your experience. Read our "
               )}<Link href="/cookies" className="text-[var(--color-primary)] underline">{t("Politica cookies", "Cookie Policy")}</Link>.</p>
             </div>
             <div className="flex items-center gap-3">

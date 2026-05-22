@@ -1,0 +1,22 @@
+{
+  "name": "Fixro — Home Services",
+  "short_name": "Fixro",
+  "description": "Home services marketplace connecting customers with verified professionals in Romania.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1A3A5C",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png"
+    }
+  ]
+}
