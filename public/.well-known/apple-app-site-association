@@ -1,0 +1,8 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      { "appID": "46435W7U2V.com.fixro.app", "paths": ["/provider/*", "/stripe/*"] }
+    ]
+  }
+}

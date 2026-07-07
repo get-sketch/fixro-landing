@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.fixro.fixro",
+      "sha256_cert_fingerprints": [
+        "89:25:43:4A:45:9A:93:A4:E9:07:BB:86:BB:C2:65:05:78:AF:42:F5:D1:1B:D0:F7:62:AE:6D:14:2C:31:E8:7A",
+        "78:88:6D:71:C7:D7:92:B1:C1:B6:93:0B:68:CE:79:B5:90:64:B2:B3:92:78:46:5B:A4:E4:42:5E:49:5D:CE:30"
+      ]
+    }
+  }
+]
